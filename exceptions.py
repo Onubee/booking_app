@@ -16,4 +16,9 @@ class UserAlreadyExistsException(BookingException):
 
 class UserNotExistsException(BookingException):
     status_code = status.HTTP_401_UNAUTHORIZED
-    detail = "Incorrect email or password"
+    detail = "Неверный формат токена"
+
+
+class RoomCannotBeBooked(BookingException):
+    status_code = status.HTTP_409_CONFLICT
+    detail = "Не осталось свободных мест"
